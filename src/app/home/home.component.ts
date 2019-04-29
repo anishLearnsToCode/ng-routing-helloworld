@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,15 @@ export class HomeComponent implements OnInit {
   public val5: number;
   public val6: string;
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit() {
+  }
+
+  public loadServers(): void {
+    // calculate complex stuff
+    // noinspection JSIgnoredPromiseFromCall
+    this.router.navigate(['/servers']);
   }
 
 }

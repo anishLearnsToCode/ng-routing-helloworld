@@ -12,7 +12,7 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
-import {routes} from './RoutesDefinitions';
+import { routes } from './RoutesDefinitions';
 
 @NgModule({
   declarations: [
