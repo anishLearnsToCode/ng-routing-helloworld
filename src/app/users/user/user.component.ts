@@ -1,6 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { RoutesParameters } from '../../RoutesParameters';
 
 @Component({
   selector: 'app-user',
@@ -13,8 +14,8 @@ export class UserComponent implements OnDestroy {
 
   constructor(private readonly currentRoute: ActivatedRoute) {
     this.routerParametersSubscription = this.currentRoute.params.subscribe((parameters: Params) => {
-      this.user.id = parameters['id'];
-      this.user.name = parameters['name'];
+      this.user.id = parameters[RoutesParameters.ID];
+      this.user.name = parameters[RoutesParameters.NAME];
     });
   }
 

@@ -1,3 +1,4 @@
 export class RoutesParameters {
-  public static ID = 'id';
+  public static readonly ID = 'id';
+  public static readonly NAME = 'name';
 }

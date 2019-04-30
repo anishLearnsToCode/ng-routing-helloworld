@@ -28,4 +28,8 @@ export class ServerComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.activeRouteSubscription.unsubscribe();
   }
+
+  public navigateToEditServerPage(event: MouseEvent): void {
+    console.log(event);
+  }
 }
