@@ -2,10 +2,10 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
-        href="#"
+        *ngFor="let server of servers; let index = index"
         class="list-group-item"
-        *ngFor="let server of servers">
-        {{ server.name }}
+        [routerLink]="['/servers', server.id]"
+      >{{ server.name }}
       </a>
     </div>
   </div>
