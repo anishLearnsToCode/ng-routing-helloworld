@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
@@ -9,11 +9,9 @@ import {Router} from '@angular/router';
 })
 export class ServersComponent implements OnInit {
   public servers: {id: number, name: string, status: string}[] = [];
-  private readonly queryParameters = {
-    allowEdit: true
-  };
 
-  constructor(private serversService: ServersService, private readonly router: Router) { }
+  constructor(private serversService: ServersService,
+              private readonly router: Router) { }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
@@ -23,5 +21,4 @@ export class ServersComponent implements OnInit {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate(['/servers']);
   }
-
 }
