@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { RoutesParameters } from '../../RoutesParameters';
+import { RoutesParameters } from '../../../routing/RoutesParameters';
 
 @Component({
   selector: 'app-user',

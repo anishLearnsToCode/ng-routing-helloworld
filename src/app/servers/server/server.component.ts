@@ -3,7 +3,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ServersService } from '../servers.service';
 import { Server } from '../Server.model';
 import {ActivatedRoute, Params} from '@angular/router';
-import { RoutesParameters } from '../../RoutesParameters';
+import { RoutesParameters } from '../../../routing/RoutesParameters';
 import {Subscription} from 'rxjs';
 import {EditServerQueryParameters} from '../edit-server/EditServerQueryParameters';
 import {UsersService} from '../../users/users.service';
