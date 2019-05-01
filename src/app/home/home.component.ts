@@ -20,9 +20,8 @@ export class HomeComponent implements OnInit {
   }
 
   public loadServers(): void {
-    // calculate complex stuff
     // noinspection JSIgnoredPromiseFromCall
-    this.router.navigate(['/servers', 10, 'edit'], {
+    this.router.navigate(['/servers', 1, 'edit'], {
       queryParams: {
         allowEditing: true
       },
