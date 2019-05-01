@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthorizationService} from '../users/authorization.service';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,12 @@ export class HomeComponent implements OnInit {
   public val5: number;
   public val6: string;
 
-  constructor(private readonly router: Router) { }
+  constructor(private readonly router: Router, private readonly authorization: AuthorizationService) { }
 
   ngOnInit() {
   }
 
-  public loadServers(): void {
+  public loadServer1(): void {
     // noinspection JSIgnoredPromiseFromCall
     this.router.navigate(['/servers', 1, 'edit'], {
       queryParams: {
@@ -27,6 +28,14 @@ export class HomeComponent implements OnInit {
       },
       fragment: 'loading'
     });
+  }
+
+  public logIn() {
+    this.authorization.logIn();
+  }
+
+  public logOut() {
+    this.authorization.logOut();
   }
 
 }
