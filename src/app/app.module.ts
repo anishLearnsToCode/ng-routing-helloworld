@@ -17,6 +17,7 @@ import { ServersRouteGuardService } from '../routing/servers-route-guard.service
 import { AuthorizationService } from './users/authorization.service';
 import { RouterModule } from '@angular/router';
 import { ServersRouteDeactivateGuardService } from '../routing/servers-route-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ServersRouteDeactivateGuardService } from '../routing/servers-route-dea
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
