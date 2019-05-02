@@ -7,9 +7,10 @@ import { AuthorizationService } from '../app/users/authorization.service';
   providedIn: 'root'
 })
 export class ServersRouteGuardService implements CanActivate, CanActivateChild {
-  private isUserLoggedIn = false;
+  private isUserLoggedIn;
 
-  constructor(private readonly authorization: AuthorizationService, private readonly router: Router) { }
+  constructor(private readonly authorization: AuthorizationService, private readonly router: Router) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.authorization.isLoggedIn()

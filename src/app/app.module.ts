@@ -39,9 +39,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
   ],
   providers: [
     ServersService,
-    ServersRouteGuardService,
-    AuthorizationService,
-    ServersRouteDeactivateGuardService
+    AuthorizationService
   ],
   bootstrap: [AppComponent]
 })
