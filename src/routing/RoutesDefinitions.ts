@@ -9,6 +9,7 @@ import {PageNotFoundComponent} from '../app/page-not-found/page-not-found.compon
 import {ServersRouteGuardService} from './servers-route-guard.service';
 import {ServersRouteDeactivateGuardService} from './servers-route-deactivate-guard.service';
 import {ErrorPageComponent} from '../app/error-page/error-page.component';
+import {ServerResolverService} from '../app/servers/server/server-resolver.service';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,14 +19,10 @@ export const routes: Routes = [
     ]
   },
 
-  { path: 'servers', component: ServersComponent, canActivateChild: [
-      ServersRouteGuardService
-    ], children: [
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent, canDeactivate: [
-          ServersRouteDeactivateGuardService
-        ]
-      }
+  { path: 'servers', component: ServersComponent, canActivateChild: [ServersRouteGuardService],
+    children: [
+      { path: ':id', component: ServerComponent, resolve: {server: ServerResolverService} },
+      { path: ':id/edit', component: EditServerComponent, canDeactivate: [ServersRouteDeactivateGuardService]}
     ]
   },
 

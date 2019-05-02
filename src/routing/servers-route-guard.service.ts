@@ -13,11 +13,13 @@ export class ServersRouteGuardService implements CanActivate, CanActivateChild {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    this.authorization.isLoggedIn()
-      .then((isLoggedIn: boolean) => {
-        this.isUserLoggedIn = isLoggedIn;
-      });
-    return this.isUserLoggedIn ? true : this.navigateTo404Page();
+    // this.authorization.isLoggedIn()
+    //   .then((isLoggedIn: boolean) => {
+    //     this.isUserLoggedIn = isLoggedIn;
+    //   });
+    // return this.isUserLoggedIn ? true : this.navigateTo404Page();
+
+    return this.authorization.isLoggedIn();
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

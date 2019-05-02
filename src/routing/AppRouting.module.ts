@@ -3,6 +3,7 @@ import {RouterModule} from '@angular/router';
 import {routes} from './RoutesDefinitions';
 import {ServersRouteGuardService} from './servers-route-guard.service';
 import {ServersRouteDeactivateGuardService} from './servers-route-deactivate-guard.service';
+import {ServerResolverService} from '../app/servers/server/server-resolver.service';
 
 @NgModule({
   imports: [
@@ -11,9 +12,6 @@ import {ServersRouteDeactivateGuardService} from './servers-route-deactivate-gua
   exports: [
     RouterModule
   ],
-  providers: [
-    ServersRouteGuardService,
-    ServersRouteDeactivateGuardService
-  ]
+  providers: []
 })
 export class AppRoutingModule { }

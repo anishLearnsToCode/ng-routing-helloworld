@@ -16,7 +16,9 @@ export class AuthorizationService {
 
   public isLoggedIn(): Promise<boolean> {
     return new Promise<boolean>((resolve) => {
-      resolve(this.loggedIn);
+      setTimeout(() => {
+        resolve(this.loggedIn);
+      }, 0);
     });
   }
 }

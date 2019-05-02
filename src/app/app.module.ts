@@ -18,6 +18,7 @@ import { AuthorizationService } from './users/authorization.service';
 import { RouterModule } from '@angular/router';
 import { ServersRouteDeactivateGuardService } from '../routing/servers-route-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolverService } from './servers/server/server-resolver.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
   ],
   providers: [
     ServersService,
-    AuthorizationService
+    AuthorizationService,
+    ServerResolverService,
+    ServersRouteGuardService,
+    ServersRouteDeactivateGuardService
   ],
   bootstrap: [AppComponent]
 })
