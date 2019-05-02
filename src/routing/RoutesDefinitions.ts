@@ -8,6 +8,7 @@ import {ServerComponent} from '../app/servers/server/server.component';
 import {PageNotFoundComponent} from '../app/page-not-found/page-not-found.component';
 import {ServersRouteGuardService} from './servers-route-guard.service';
 import {ServersRouteDeactivateGuardService} from './servers-route-deactivate-guard.service';
+import {ErrorPageComponent} from '../app/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +29,11 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '404', component: PageNotFoundComponent },
+  {
+    path: '404', component: ErrorPageComponent, data: {
+      message: '404 error from the router - static'
+    }
+  },
 
   { path: '**', redirectTo: '404'}
 ];

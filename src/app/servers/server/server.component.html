@@ -1,5 +1,5 @@
 <h5>{{ server.name }}</h5>
-<p>Server status is {{ server.status }}</p>
+<p>Server status is {{ server.getStatus() }}</p>
 
 <button class="btn btn-primary"
         [routerLink]="['/servers', server.id, 'edit']"

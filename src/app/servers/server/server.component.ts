@@ -2,11 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import { ServersService } from '../servers.service';
 import { Server } from '../Server.model';
-import {ActivatedRoute, Params} from '@angular/router';
-import { RoutesParameters } from '../../../routing/RoutesParameters';
+import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {EditServerQueryParameters} from '../edit-server/EditServerQueryParameters';
 import {UsersService} from '../../users/users.service';
+import {ServerComponentRouteParameters} from './ServerComponentRouteParameters';
 
 @Component({
   selector: 'app-server',
@@ -15,14 +15,13 @@ import {UsersService} from '../../users/users.service';
 })
 export class ServerComponent implements OnDestroy {
   public server: Server;
-  private readonly activeRouteSubscription: Subscription;
+  private readonly routeParametersSubscription: Subscription;
 
-  constructor(private serversService: ServersService,
-              private readonly activeRoute: ActivatedRoute,
+  constructor(private serversService: ServersService, private readonly route: ActivatedRoute,
               private readonly usersService: UsersService) {
-    this.activeRouteSubscription = this.activeRoute.params.subscribe((parameters: Params) => {
-      if (parameters[RoutesParameters.ID]) {
-        this.server = this.serversService.getServer(parameters[RoutesParameters.ID]);
+    this.routeParametersSubscription = this.route.params.subscribe((parameters: ServerComponentRouteParameters) => {
+      if (parameters.id) {
+        this.server = this.serversService.getServer(Number(parameters.id));
       } else {
         this.server = this.serversService.getServer(1);
       }
@@ -30,9 +29,8 @@ export class ServerComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.activeRouteSubscription.unsubscribe();
+    this.routeParametersSubscription.unsubscribe();
   }
-
 
   public getQueryParameters(serverId: number): EditServerQueryParameters {
     return {

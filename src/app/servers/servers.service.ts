@@ -1,37 +1,25 @@
 import {ArrayIndexOutOfBoundsException} from '../ArrayIndexOutOfBoundsException';
-import {Observable} from 'rxjs';
 import {Server} from './Server.model';
+import {ServerStatus} from './ServerStatus.enum';
 
 export class ServersService {
   private servers: Server[] = [
-    {
-      id: 1,
-      name: 'Productionserver',
-      status: 'online'
-    },
-    {
-      id: 2,
-      name: 'Testserver',
-      status: 'offline'
-    },
-    {
-      id: 3,
-      name: 'Devserver',
-      status: 'offline'
-    }
+    new Server(1, 'Production', ServerStatus.ONLINE),
+    new Server(2, 'Test', ServerStatus.ONLINE),
+    new Server(3, 'Development', ServerStatus.OFFLINE)
   ];
 
-  getServersAsync(): Promise<Server[]> {
+  public getServersAsync(): Promise<Server[]> {
     return new Promise<Server[]>(resolve => {
       return this.servers;
     });
   }
 
-  getServers(): Server[] {
+  public getServers(): Server[] {
     return this.servers;
   }
 
-  getServer(id: number) {
+  public getServer(id: number) {
     if (id > this.servers.length) {
       throw new ArrayIndexOutOfBoundsException(id);
     }
@@ -39,15 +27,7 @@ export class ServersService {
     return this.servers[id - 1];
   }
 
-  updateServer(id: number, serverInfo: {name: string, status: string}) {
-    const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
-    if (server) {
-      server.name = serverInfo.name;
-      server.status = serverInfo.status;
-    }
+  public updateServer(id: number, serverInfo: Server) {
+    this.servers[id - 1] = serverInfo;
   }
 }
