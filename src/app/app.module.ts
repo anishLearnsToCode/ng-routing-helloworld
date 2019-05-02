@@ -13,9 +13,10 @@ import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from '../routing/AppRouting.module';
-import { AuthGuardService } from '../routing/auth-guard.service';
+import { ServersRouteGuardService } from '../routing/servers-route-guard.service';
 import { AuthorizationService } from './users/authorization.service';
 import { RouterModule } from '@angular/router';
+import { ServersRouteDeactivateGuardService } from '../routing/servers-route-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     ServersService,
-    AuthGuardService,
+    ServersRouteGuardService,
     AuthorizationService,
+    ServersRouteDeactivateGuardService
   ],
   bootstrap: [AppComponent]
 })

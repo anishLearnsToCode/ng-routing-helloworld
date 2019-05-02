@@ -6,7 +6,7 @@ import { AuthorizationService } from '../app/users/authorization.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate, CanActivateChild {
+export class ServersRouteGuardService implements CanActivate, CanActivateChild {
   private isUserLoggedIn = false;
 
   constructor(private readonly authorization: AuthorizationService, private readonly router: Router) { }
